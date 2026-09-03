@@ -1,12 +1,15 @@
-import 'package:adv_basics/images_content.dart';
-import 'package:adv_basics/quiz_button.dart';
 import 'package:flutter/material.dart';
 
-class StartScreen extends StatelessWidget {
-  const StartScreen(this.startQuiz, {super.key});
+class QuestionsScreen extends StatefulWidget {
+  const QuestionsScreen({super.key});
 
-  final void Function() startQuiz;
+  @override
+  State<QuestionsScreen> createState() {
+    return _QuestionsScreenState();
+  }
+}
 
+class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
     return Container(
@@ -25,12 +28,10 @@ class StartScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          MyBackgroundImage(),
           Text(
             "Learn Flutter the fun way!",
             style: TextStyle(color: Colors.white, height: 5, fontSize: 20),
           ),
-          QuizButton(startQuiz),
         ],
       ),
     );
