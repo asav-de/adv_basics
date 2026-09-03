@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
-class QuitzButton extends StatelessWidget {
-  const QuitzButton({super.key});
+class QuizButton extends StatelessWidget {
+  const QuizButton(this.startQuiz, {super.key});
+
+  final Function() startQuiz;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return Column(
       children: [
         FloatingActionButton.extended(
-          onPressed: () {},
+          onPressed: startQuiz,
           backgroundColor: const Color.fromARGB(230, 251, 251, 251),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
@@ -18,7 +20,7 @@ class QuitzButton extends StatelessWidget {
             ),
           ),
           label: const Text(
-            'Start Quitz',
+            'Start Quiz',
             style: TextStyle(color: Color.fromARGB(255, 103, 44, 163)),
           ),
           icon: const Icon(Icons.arrow_right_alt),
