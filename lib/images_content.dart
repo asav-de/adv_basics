@@ -6,11 +6,15 @@ class MyBackgroundImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Image.asset(
-        width: 300,
-        height: 300,
-        "images/quiz-logo.png",
-        fit: BoxFit.contain,
+      child: Column(
+        children: [
+          Image.asset(
+            width: 300,
+            height: 300,
+            "assets/images/quiz-logo.png",
+            color: const Color.fromARGB(200, 254, 254, 254),
+          ),
+        ],
       ),
     );
   }

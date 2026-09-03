@@ -9,6 +9,7 @@ class QuitzButton extends StatelessWidget {
       children: [
         FloatingActionButton.extended(
           onPressed: () {},
+          backgroundColor: const Color.fromARGB(230, 251, 251, 251),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
             side: BorderSide(
@@ -16,8 +17,11 @@ class QuitzButton extends StatelessWidget {
               width: 1,
             ),
           ),
-          label: const Text('Start Quitz'),
-          icon: const Icon(Icons.play_arrow),
+          label: const Text(
+            'Start Quitz',
+            style: TextStyle(color: Color.fromARGB(255, 103, 44, 163)),
+          ),
+          icon: const Icon(Icons.arrow_right_alt),
         ),
       ],
     );
