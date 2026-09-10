@@ -26,10 +26,7 @@ class StartScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           MyBackgroundImage(),
-          Text(
-            "Learn Flutter the fun way!",
-            style: TextStyle(color: Colors.white, height: 5, fontSize: 20),
-          ),
+          Text("Learn Flutter the fun way!"),
           QuizButton(startQuiz),
         ],
       ),

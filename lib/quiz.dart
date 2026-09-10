@@ -24,13 +24,25 @@ class _QuizState extends State<Quiz> {
 
   void switchScreen() {
     setState(() {
-      activeScreen = const QuestionsScreen();
+      activeScreen = QuestionsScreen(restartQuiz);
+    });
+  }
+
+  void restartQuiz() {
+    setState(() {
+      activeScreen = StartScreen(switchScreen);
     });
   }
 
   @override
   Widget build(context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(color: Colors.white, height: 5, fontSize: 20),
+          // другие стили: bodyMedium, titleLarge, displaySmall и т.д.
+        ),
+      ),
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 103, 44, 163),
