@@ -1,4 +1,5 @@
 import 'package:adv_basics/answer_button.dart';
+import 'package:adv_basics/data/questions.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class QuestionsScreen extends StatefulWidget {
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
   Widget? questionsScreen;
+  final currentQuestion = questions[1];
 
   @override
   Widget build(context) {
@@ -33,17 +35,17 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Learn Flutter the fun way!"),
+          Text(
+            currentQuestion.text,
+            style: const TextStyle(color: Colors.white),
+          ),
           const SizedBox(height: 30),
-          AnswerButton(answerText: 'Answer 1', onTap: () {}),
-          const SizedBox(height: 10),
-          AnswerButton(answerText: 'Answer 2', onTap: () {}),
-          const SizedBox(height: 10),
-          AnswerButton(answerText: 'Answer 3', onTap: () {}),
-          const SizedBox(height: 10),
-          AnswerButton(answerText: 'Answer 4', onTap: () {}),
-          const SizedBox(height: 10),
-          const SizedBox(height: 30),
+          ...currentQuestion.answers.map((answer) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: AnswerButton(answerText: answer, onTap: () {}),
+            );
+          }),
           FloatingActionButton(
             onPressed: widget.restartQuiz,
             tooltip: 'Back to start',
